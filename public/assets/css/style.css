@@ -1285,6 +1285,29 @@ ul {
   opacity: 0;
 }
 
+.carousel-item{
+  width: 100%; /* largeur fixe pour toutes les images */
+  height: 440px; /* hauteur fixe pour toutes les images */
+  overflow: hidden;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center
+}
+.carousel-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Options: cover, contain, fill, scale-down, none */
+}
+.thumb{
+  width: 280px; /* largeur fixe pour toutes les images */
+  height: 180px; /* hauteur fixe pour toutes les images */
+  overflow: hidden;
+}
+.thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /****** video play btn *******/
 .play-btn-large {
   height: 80px;

@@ -6,7 +6,44 @@
         <!-- banner area start -->
         <div class="banner-inner pt-5">
             <div class="container">
-                <div class="row">
+                <div class="conatiner-fluid">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="assets/img/banner/1.png" class="d-block" alt="...">
+                        </div>
+                            @if($pubs->count() > 0)
+                            @foreach($pubs as $p)
+                            @if($p->status == 0)
+                            <div class="carousel-item">
+                                <img src="{{$p->image}}" class="d-block" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <!-- <ul>
+                                        <li><a class="tag-base tag-blue" href="#">Tech</a></li>
+                                        <li class="date"><i class="fa fa-clock-o"></i>{{$p->created_at}}</li>
+                                    </ul> -->
+                                    <!-- <h2>{{$p->title}}</h2> -->
+                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> -->
+                                    <a class="btn btn-blue" href="{{$p->lien}}">Read More</a>
+                                </div> 
+                                    
+                            </div>
+                            @endif
+                            @endforeach
+                            @endif
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                <!-- <div class="row">
                     <div class="col-lg-6">
                         <div class="thumb after-left-top">
                             <img src="assets/img/banner/1.png" alt="img">
@@ -25,7 +62,7 @@
                             <a class="btn btn-blue" href="#">Read More</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- banner area end -->
@@ -115,7 +152,13 @@
                         <div class="single-post-wrap style-overlay">
                             <div class="thumb">
                                 <img src="{{ $art->image }}" alt="img"><br>
-                                <a class="tag-base tag-purple" href="{{ route('article.view', $art)}}">{{$art->categorie}}</a><br>
+                                <a class="tag-base tag-purple" href="{{ route('article.view', $art)}}">
+                                @foreach($categorie as $cat)
+                                @if($cat->id == $art->category_id)
+                                    {{$cat->nom}}
+                                @endif
+                                @endforeach
+                                </a><br>
                             </div>
                             <div class="details">
                                 <div class="post-meta-single">

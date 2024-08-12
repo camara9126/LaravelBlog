@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\article;
+use App\Models\Categorie;
+use App\Models\Pubs;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,9 +14,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $categorie= Categorie::all();
         $articles= article::all();
+        $pubs= Pubs::all();
         // dd($articles);
-    return view('blog.home', compact('articles'));
+    return view('blog.home', compact('articles','pubs','categorie'));
+    }
+
+    public function pub()
+    {
+        $pubs= Pubs::all();
+        return view('blog.home', compact('pubs'));
     }
 
     /**

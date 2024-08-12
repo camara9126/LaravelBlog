@@ -16,12 +16,24 @@
             @foreach($resultat as $res)
                 <div class="row mt-5 pb-4">
                     <div class="col-md-9">
-                        <sup class="bg-success text-white">{{ $res->categorie }}</sup><h3 class="">{{$res->title}}</h3>
+                        <sup class="bg-success text-white">
+                            @foreach($categorie as $cat)
+                            @if($cat->id == $res->category_id)
+                                {{$cat->nom}}
+                            @endif
+                            @endforeach
+                        </sup><h3 class="">{{$res->title}}</h3>
                         <img src="{{ asset($res->image) }}" width="80%" alt="{{$res->title}}">
                     </div>
                     <div class="col-md-3 mt-5 pt-5">
                         <ul class="border"type="none">
-                            <li><h6 class="">Categorie :</h6><i>{{$res->categorie}}</i></li><br>
+                            <li><h6 class="">Categorie :</h6><i>
+                            @foreach($categorie as $cat)
+                            @if($cat->id == $res->category_id)
+                                {{$cat->nom}}
+                            @endif
+                            @endforeach
+                            </i></li><br>
                             <li><h6 class="">Auteur :</h6><i>{{$res->auteur}}</i></li><br>
                             <li><h6 class="">Date de création :</h6><i>{{$res->created_at}}</i></li><br>
                             @if($res->commentaire->count() > 0)

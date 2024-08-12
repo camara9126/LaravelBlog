@@ -10,13 +10,25 @@
                 </div>
             @endif
         <div class="row mt-5 pb-4">
-            <div class="col-md-9">
-                <sup class="bg-primary text-white">{{ $article->categorie }}:</sup><h3 class="">{{$article->title}}</h3>
+            <div class="col-lg-9">
+                <sup class="bg-primary text-white">
+                    @foreach($categorie as $cat)
+                        @if($cat->id == $article->category_id)
+                        {{$cat->nom}}
+                        @endif
+                    @endforeach
+                    :</sup><h3 class="">{{$article->title}}</h3>
                 <img src="{{ asset($article->image) }}" width="90%" alt="{{$article->title}}">
             </div>
-            <div class="col-md-3 mt-5 pt-5">
+            <div class="col-lg-3 mb-0 pb-0">
                 <ul class="border"type="none">
-                    <li><h6 class="">Categorie :</h6><i>{{$article->categorie}}</i></li><br>
+                    <li><h6 class="">Categorie :</h6><i>
+                        @foreach($categorie as $cat)
+                        @if($cat->id == $article->category_id)
+                        {{$cat->nom}}
+                        @endif
+                        @endforeach
+                    </i></li><br>
                     <li><h6 class="">Auteur :</h6><i>{{$article->auteur}}</i></li><br>
                     <li><h6 class="">Date de création :</h6><i>{{$article->created_at}}</i></li><br>
                     @if($article->commentaire->count() > 0)

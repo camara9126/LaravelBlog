@@ -19,10 +19,10 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Commentaire</th>
-                                <th scope="col">ID_Article</th>
-                                <th scope="col">Date</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Commentaires</th>
+                                <th scope="col">Articles Commentés</th>
+                                <th scope="col">Dates</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,7 +30,13 @@
                             <tr>
                                 <th scope="row">{{$c->id}}</th>
                                 <td>{{$c->content}}</td>
-                                <td>{{$c->article_id}}</td>
+                                <td>
+                                    @foreach($article as $art)
+                                    @if($art->id == $c->article_id)
+                                        {{$art->title}}
+                                    @endif
+                                    @endforeach
+                                </td>
                                 <td>{{$c->created_at}}</td>
                             </tr>
                             @endforeach

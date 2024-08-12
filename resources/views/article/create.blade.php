@@ -30,8 +30,14 @@
                             <div class="row">
                                 <div class="col-md-6 form-group text-center">
                                     <label for="">Categorie <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control text-center" value="" name="categorie" required>
+                                    <select name="category_id" id="" class="form-control" required>
+                                        <option value="">Veuillez choisir une categorie</option>
+                                        @foreach($categorie as $cat)
+                                        <option value="{{$cat->id}}">{{strtoupper($cat->nom)}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
+                                    
                                 <div class="col-md-6 form-group text-center">
                                     <label for="">Auteur <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control text-center" value="" name="auteur" required>

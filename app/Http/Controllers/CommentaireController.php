@@ -11,8 +11,9 @@ class CommentaireController extends Controller
 
     public function index()
     {
+        $article= article::all();
         $comment= commentaire::orderBy('created_at','DESC')->get();
-        return view('article.comment', compact('comment'));
+        return view('article.comment', compact('comment','article'));
     }
     public function store(Request $request, article $article)
     {
@@ -30,7 +31,7 @@ class CommentaireController extends Controller
 
     public function destroy(commentaire $comment)
     {
-        if (auth()->id() == $comment->article_id) {
+        if (auth()->id == $comment->article_id) {
             $comment->delete();
             return redirect()->back()->with('success', 'Comment deleted!');
         }
