@@ -17,20 +17,24 @@
                 <div class="collapse navbar-collapse" id="nextpage_main_menu">
                     <ul class="navbar-nav menu-open">
                         <li class="current-menu-item">
-                            <a href="/">Home</a>
-                        </li>                        
-                        <!-- <li class="current-menu-item">
-                            <a href="#trending">Trending News</a>
-                        </li>                         -->
-                        <!-- <li class="current-menu-item">
-                            <a href="#latest">Latest News</a>
-                        </li>                         -->
-                        <!-- <li class="current-menu-item">
-                            <a href="#grid">News Grid</a>
-                        </li>                         -->
-                        <!-- <li class="current-menu-item">
-                            <a target="_blank" href="https://1.envato.market/5OQX2">Pro Version</a>
-                        </li> -->
+                            <a href="/" class="text-warning">Accueil</a>
+                        </li>  
+                                         
+                        <li class="current-menu-item">
+                            <!-- <div class="dropdown"> -->
+                                <li class="current-menu-item text-white dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <a href="">Categories</a>
+                                </li>
+                                <div class="dropdown-menu">
+                                    @if($categorie->count() > 0)
+                                    @foreach($categorie as $cat)                                 
+                                    <a class="dropdown-item" href="{{ route('categorie.show',['categorie'=>$cat->id]) }}">{{$cat->nom}}</a>
+                                    @endforeach
+                                    @endif                            
+                                    <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                                </div>
+                            <!-- </div> -->
+                        </li>   
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">

@@ -12,6 +12,7 @@ class Categorie extends Model
     protected $fillable= [
         'nom',
         'description',
+        'image',
     ];
 
     public function articles()

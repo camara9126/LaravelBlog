@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+@include('includes.header')
+
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('success') }}
@@ -19,14 +19,12 @@
                 <a href="{{ route('pub.create') }}" class="btn btn-primary">Ajout Pub</a>
             </div>
         </div>
-        
-    </x-slot>
 
-    <div class="py-12">
+    <div class="py-10">
         
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="row">
+        <!-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg"> -->
+                <div class="row bg-white">
                     <div class="col-md-12">
                         <table class="table table-bordered">
                             <thead>
@@ -84,7 +82,8 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
     </div>
-</x-app-layout>
+    @include('includes.footer')
+

@@ -1297,6 +1297,20 @@ ul {
   height: 100%;
   object-fit: cover; /* Options: cover, contain, fill, scale-down, none */
 }
+
+.view{
+  width: 100%; /* largeur fixe pour toutes les images */
+  height: 350px; /* hauteur fixe pour toutes les images */
+  overflow: hidden;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center
+}
+.view img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Options: cover, contain, fill, scale-down, none */
+}
+
 .thumb{
   width: 280px; /* largeur fixe pour toutes les images */
   height: 180px; /* hauteur fixe pour toutes les images */
@@ -1307,6 +1321,29 @@ ul {
   height: 100%;
   object-fit: cover;
 }
+
+.media-left{
+  width: 70px; /* largeur fixe pour toutes les images */
+  height: 60px; /* hauteur fixe pour toutes les images */
+  overflow: hidden;
+}
+.media-left img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-number{
+  width: 150px; /* largeur fixe pour toutes les images */
+  height: 100px; /* hauteur fixe pour toutes les images */
+  overflow: hidden;
+}
+.service-number img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 /****** video play btn *******/
 .play-btn-large {

@@ -19,19 +19,14 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="widget widget_tag_cloud">
-                        <h5 class="widget-title">TAGS</h5>
+                        <h5 class="widget-title">THEMES</h5>
                         <div class="tagcloud">
-                            <a href="#">Consectetur</a>
-                            <a href="#">Video</a>
-                            <a href="#">App</a>
-                            <a href="#">Food</a>
-                            <a href="#">Game</a>
-                            <a href="#">Internet</a>
-                            <a href="#">Phones</a>
-                            <a href="#">Development</a>
-                            <a href="#">Video</a>
-                            <a href="#">Game</a>
-                            <a href="#">Gadgets</a>
+                            @if($categorie->count() > 0)
+                            @foreach($categorie as $cat)
+                            <a href="{{route('categorie.show', ['categorie' => $cat->id])}}">{{$cat->nom}}</a>
+                            @endforeach
+                            @endif
+                            <!-- <a href="#">Video</a> -->
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+@include('includes.header')
+
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('success') }}
@@ -19,8 +19,6 @@
                 <a href="{{ route('categorie.create') }}" class="btn btn-primary">Ajout Categorie</a>
             </div>
         </div>
-        
-    </x-slot>
 
     <div class="py-12">
         
@@ -32,6 +30,7 @@
                         <thead>
                             <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Description</th>
                             <th scope="col">Action</th>
@@ -42,6 +41,9 @@
                             @foreach($categorie as $cat)
                             <tr>
                             <th scope="row">{{$cat->id}}</th>
+                            <td>
+                                <img src="{{asset($cat->image)}}" width="200" alt="">
+                            </td>
                             <td>{{$cat->nom}}</td>
                             <td>{{$cat->description}}</td>
                             <td>
@@ -64,4 +66,4 @@
         </div>
     </div>
     
-</x-app-layout>
+@include('includes.footer')

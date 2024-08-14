@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+@include('includes.header')
+
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('success') }}
@@ -16,11 +16,9 @@
                 </h2>
             </div>
             <div class="col-md-2">
-                <a href="{{ route('article.index') }}" class="btn btn-danger">Retour</a>
+                <a href="{{ route('categorie.index') }}" class="btn btn-danger">Retour</a>
             </div>
         </div>
-        
-    </x-slot>
 
     <div class="py-12">
         
@@ -28,7 +26,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="row">
                     <div class="col-md-8">
-                        <form action="{{ route('categorie.update', $categorie->id) }}" method="post">
+                        <form action="{{ route('categorie.update', $categorie->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -39,10 +37,11 @@
                                 <label for="exampleInputText">Description Categorie</label>
                                 <input type="text" class="form-control" name="description" value="{{$categorie->description}}" id="exampleInputText">
                             </div>
-                            <!-- <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div> -->
+                            <div class="form-group form-check">
+                                <label class="form-image-label" for="exampleCheck1">Image Categorie</label>
+                                <img src="{{$categorie->image}}" width="100" height="90" alt="">
+                                <input type="file" name="image" class="form-control"  value="{{$categorie->image}}">
+                            </div>
                             <button type="submit" class="btn btn-success">Editer</button>
                         </form>
                     </div>
@@ -50,4 +49,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+    @include('includes.footer')

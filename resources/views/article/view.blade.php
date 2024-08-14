@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+@include('includes.header')
+
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('success') }}
@@ -20,8 +20,6 @@
             </div>
         </div>
         
-    </x-slot>
-</x-app-layout>
 <div class="py-10">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -74,3 +72,5 @@
         </div>
     </div>
 </div>
+
+@include('includes.footer')

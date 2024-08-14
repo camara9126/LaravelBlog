@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+@include('includes.header')
+   
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('success') }}
@@ -19,8 +19,6 @@
                 <a href="{{ route('article.create') }}" class="btn btn-primary">Ajout Article</a>
             </div>
         </div>
-        
-    </x-slot>
 
     <div class="py-12">
         
@@ -84,4 +82,5 @@
         </div>
     </div>
     
-</x-app-layout>
+    @include('includes.footer')
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\article;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 
@@ -32,19 +33,30 @@ class CategorieController extends Controller
         $validatedData= $request->validate([
             'nom' => 'required',
             'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
+            // dd($validatedData);
+
+            $filename = time().$request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('catImages', $filename, 'public');
+            $validatedData['image'] = '/storage/' . $path;
 
             Categorie::create($validatedData);
-            // dd($validatedData);
+            
             return redirect()->route('categorie.index')->with('success', 'categorie ajouté avec succès !');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($categorie)
     {
-        //
+        $article= article::all();
+        $categorieshow= Categorie::findOrFail($categorie);
+
+        $categorie= Categorie::all();
+        // dd($categorie);
+        return view('categorie.show', compact('categorie','article','categorieshow'));
     }
 
     /**
@@ -67,7 +79,13 @@ class CategorieController extends Controller
         $validatedData= $request->validate([
             'nom' => 'required',
             'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
+            // dd($validatedData);
+
+            $filename = time().$request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('catImages', $filename, 'public');
+            $validatedData['image'] = '/storage/' . $path;
 
             $categorie->update($validatedData);
             return redirect()->route('categorie.index')->with('success', 'categorie modifié avec succès !');

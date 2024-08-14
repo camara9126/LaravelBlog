@@ -7,6 +7,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PubsController;
 use GuzzleHttp\Middleware;
 
@@ -45,12 +46,8 @@ Route::group(['middleware'=>'auth','verified'],
 );
 
 // route pour les categories 
-Route::group(['middleware'=>'auth','verified'],
-    function () {
-        Route::resource('/categorie', CategorieController::class);
-    }
-);
 
+        Route::resource('/categorie', CategorieController::class);
 
 
 // activer/desactiver un article 
@@ -63,5 +60,10 @@ Route::post('/article/{article}/commentaire', [CommentaireController::class, 'st
 Route::delete('/commentaire/{commentaire}', [CommentaireController::class, 'destroy']);
 Route::get('/commentaire', [CommentaireController::class, 'index'])->name('commentaire');
 
+
+// route dashboard 
+Route::middleware('auth')->group(function(){
+    Route::resource('/dashboard', DashboardController::class);
+});
 
 require __DIR__.'/auth.php';
