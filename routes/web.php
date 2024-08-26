@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PubsController;
+use App\Models\Categorie;
 use GuzzleHttp\Middleware;
 
 // page d'accueil blog
@@ -18,6 +19,11 @@ Route::resource('/', HomeController::class);
 // Route::get('/', function () {
 //     return redirect()->intended(route('home.index', absolute: false));
 // });
+
+Route::get('/about', function () {
+    $categorie= Categorie::all();
+    return view('blog.about',compact('categorie'));
+})->name('about');
 
 
 // barre de recherche 
@@ -34,7 +40,6 @@ Route::middleware('auth')->group(function () {
 //page article de admin
 Route::resource('/article', ArticleController::class)->middleware(['auth', 'verified']);
 Route::get('/article/{article}', [ArticleController::class, 'view'])->name('article.view');
-Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
 
 // route pour les pubs
 Route::group(['middleware'=>'auth','verified'],

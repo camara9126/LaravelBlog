@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-6 form-group text-center">
                             <label for="">Image<span class="text-danger">*</span></label>
-                            <img src="{{$pubs->image }}" alt="">
+                            <img src="{{$pubs->image }}" width="300" alt="">
                             <!-- <input type="file" class="form-control text-center" value="{{$pubs->image }}" name="image" required> -->
                         </div>
                     </div>

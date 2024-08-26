@@ -16,16 +16,11 @@ class HomeController extends Controller
     {
         $categorie= Categorie::all();
         $articles= article::all();
-        $pubs= Pubs::all();
+        $youtube= Pubs::all();
         // dd($articles);
-    return view('blog.home', compact('articles','pubs','categorie'));
+    return view('blog.home', compact('articles','youtube','categorie'));
     }
 
-    public function pub()
-    {
-        $pubs= Pubs::all();
-        return view('blog.home', compact('pubs'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -35,12 +30,10 @@ class HomeController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+   
+    public function store()
     {
-        //
+        return view('blog.about');
     }
 
     /**
@@ -74,6 +67,6 @@ class HomeController extends Controller
     {
         //
     }
-
+   
     
 }

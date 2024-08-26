@@ -30,13 +30,12 @@
                                             <div class="details">
                                                 <div class="post-meta-single">
                                                     <ul>
-                                                        <li><i class="fa fa-clock-o"></i>{{$c->created_at->format('d/m/Y')}}</li>
+                                                        <li><i class="fa fa-clock-o"></i>{{$c->created_at->format('d:m:Y')}}</li>
                                                     </ul>
                                                 </div>
                                                 <h5 class="title">
                                                     <a href="{{ route('categorie.show', ['categorie'=>$c->id]) }}">
-                                                        {{strtoupper($c->nom)}}:<br>
-                                                        {{strtoupper($c->description)}}
+                                                        {{strtoupper($c->nom)}}:
                                                     </a>
                                                 </h5>
                                             </div>
@@ -64,7 +63,7 @@
                             <h5>
                                 <a href="{{route('article.view', $art)}}">{{$art->title}}</a>
                             </h5>
-                            <!-- <p>{!!Str::limit($art->content, 200)!!}</p> -->
+                            <p>{!!Str::limit($art->content, 90)!!}</p>
                         </div>
                     </div>
                     @endif
@@ -76,5 +75,74 @@
                 </div>
             </div>
         </div>
+
+        <div class="container bg-black mb-5">
+            <div class="row pt-5">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-post-wrap style-white">
+                        <div class="thumb">
+                            <img src="../assets/img/post/1.png" alt="img">
+                            <a class="tag-base tag-blue" href="#">Tech</a>
+                        </div>
+                        <div class="details">
+                            <h6 class="title"><a href="#">The FAA will test drone detecting technologies in airports this year</a></h6>
+                            <div class="post-meta-single mt-3">
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-post-wrap style-white">
+                        <div class="thumb">
+                            <img src="../assets/img/post/2.png" alt="img">
+                            <a class="tag-base tag-orange" href="#">Food</a>
+                        </div>
+                        <div class="details">
+                            <h6 class="title"><a href="#">Rocket Lab will resume launches no sooner than August 27th</a></h6>
+                            <div class="post-meta-single mt-3">
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-post-wrap style-white">
+                        <div class="thumb">
+                            <img src="../assets/img/post/3.png" alt="img">
+                            <a class="tag-base tag-blue" href="#">Tech</a>
+                        </div>
+                        <div class="details">
+                            <h6 class="title"><a href="#">Google Drive flaw may attackers fool you into install malware</a></h6>
+                            <div class="post-meta-single mt-3">
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-post-wrap style-white">
+                        <div class="thumb">
+                            <img src="../assets/img/post/4.png" alt="img">
+                            <a class="tag-base tag-orange" href="#">Food</a>
+                        </div>
+                        <div class="details">
+                            <h6 class="title"><a href="#">TikTok will sue the US over threatened ban</a></h6>
+                            <div class="post-meta-single mt-3">
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
    
 @include('partials.footer')

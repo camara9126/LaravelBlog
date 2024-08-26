@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\article;
 use App\Models\Categorie;
+use App\Models\commentaire;
+use App\Models\Pubs;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -57,9 +59,9 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(article $article)
+    public function show(string $id)
     {
-        return view('article.view', compact('article'));
+        //
     }
 
     /**
@@ -126,8 +128,10 @@ class ArticleController extends Controller
     // fonction view article pour l'user
     public function view(article $article)
     {
+        $comment= commentaire::all();
+        $youtube= Pubs::all();
         $categorie = Categorie::all();
-        return view('blog.view', compact('article','categorie'));
+        return view('blog.view', compact('article','categorie','youtube','comment'));
     }
 
    

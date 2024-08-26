@@ -15,6 +15,7 @@ class CommentaireController extends Controller
         $comment= commentaire::orderBy('created_at','DESC')->get();
         return view('article.comment', compact('comment','article'));
     }
+    
     public function store(Request $request, article $article)
     {
         $request->validate([

@@ -1,13 +1,11 @@
 @include('includes.header')
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     {{ __("Commentaires") }}
                 </h2>
             </div>
-            <div class="col-md-2">
-                <a href="{{ route('article.index') }}" class="btn btn-danger">Retour </a>
-            </div>
+            
         </div>
         
         <div class="py-10">

@@ -37,8 +37,8 @@
 
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard.index') }}">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-hospital-o"></i>
+                    <div class="sidebar-brand-icon">
+                        <img src="../assets/img/logo-blog.png" width="50" alt="img">
                     </div>
                     <div class="sidebar-brand-text mx-3">Dashboard</div>
                 </a>
@@ -53,7 +53,6 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
 
                 <!-- Nav Item - Utilities Collapse Menu -->
                 <li
@@ -154,7 +153,6 @@
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-
                                             <x-dropdown-link :href="route('logout')"
                                                     onclick="event.preventDefault();
                                                                 this.closest('form').submit();">

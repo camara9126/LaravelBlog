@@ -32,6 +32,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Titre</th>
+                                <th scope="col">Categorie</th>
                                 <th scope="col">Date Creation</th>
                                 <th scope="col">Statut</th>
                                 <th scope="col">Action</th>
@@ -46,6 +47,13 @@
                                     <img src="{{asset($a->image)}}" width="150" alt="">
                                 </td>
                                 <td>{{$a->title}}</td>
+                                <td>
+                                    @foreach($categorie as $cat)
+                                    @if($cat->id == $a->category_id)
+                                        {{$cat->nom}}
+                                    @endif
+                                    @endforeach
+                                </td>
                                 <td>{{$a->created_at}}</td>
                                 <td>
                                     @if ($a->status)

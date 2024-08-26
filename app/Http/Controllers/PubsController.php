@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\article;
 use Illuminate\Http\Request;
 use App\Models\Pubs;
 
@@ -21,7 +22,8 @@ class PubsController extends Controller
      */
     public function create()
     {
-        return view('pubs.create');
+        $articles= article::all();
+        return view('pubs.create', compact('articles'));
     }
 
     /**
@@ -60,9 +62,10 @@ class PubsController extends Controller
      */
     public function edit($pubs)
     {
+        $articles= article::all();
         $pubs = Pubs::findOrFail($pubs);
         // dd($pubs);
-        return view('pubs.edit', compact('pubs'));
+        return view('pubs.edit', compact('pubs','articles'));
 
     }
 
@@ -83,9 +86,9 @@ class PubsController extends Controller
             $filename = time().$request->file('image')->getClientOriginalName();
             $path = $request->file('image')->storeAs('pubImages', $filename, 'public');
             $validatedData['image'] = '/storage/' . $path;
-
-            $pubs->update($validatedData);
             // dd($pubs);
+            $pubs->update($validatedData);
+           
             return redirect()->route('pub.index')->with('success', 'publication modifié avec succès !');
     }
 

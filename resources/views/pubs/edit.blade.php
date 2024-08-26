@@ -40,11 +40,16 @@
                     <div class="row">
                         <div class="col-md-6 form-group text-center">
                             <label for="">Contact<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" value="{{ $pubs->contact }}" name="contact" required>
+                            <!-- <input type="text" class="form-control" value="{{ $pubs->contact }}" name="contact" required> -->
+                            <select name="contact" id="" class="form-control">
+                                @foreach($articles as $con)
+                                <option value="{{ $con->id }}">{{ $con->title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-md-6 form-group text-center">
                             <label for="">Image<span class="text-danger">*</span></label>
-                            <img src="{{$pubs->image }}" alt="">
+                            <img src="{{$pubs->image }}" width="300" alt="">
                             <input type="file" class="form-control text-center" value="{{ $pubs->image }}" name="image" required>
                         </div>
                     </div>

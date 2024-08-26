@@ -1,5 +1,5 @@
 @include('includes.header')
-
+    
         <div class="row">
             <div class="col-md-10">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -11,7 +11,8 @@
             </div>
         </div>
         
-    <div class="py-10">
+    <div class="py-12">
+        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -24,12 +25,18 @@
                         </ul>
                     </div>
                 @endif
+
                     <form action="{{ route('pub.store') }}" method="post" enctype="multipart/form-data" id="create_form">
                         @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group text-center">
                                     <label for="">Titre <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control text-center" value="" name="title" required>
+                                    <select name="title" id="" class="form-control">
+                                        @foreach ($articles as $art)
+                                            <option value="{{ $art->title }}">{{ $art->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    <!-- <input type="text" class="form-control text-center" value="" name="title" required> -->
                                 </div>
                                 <div class="col-md-6 form-group text-center">
                                     <label for="">Lien <span class="text-danger">*</span></label>
@@ -39,7 +46,12 @@
                             <div class="row">
                                 <div class="col-md-6 form-group text-center">
                                     <label for="">Contact<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" value="" name="contact" required>
+                                    <!-- <input type="text" class="form-control" value="" name="contact" required> -->
+                                    <select name="contact" id="" class="form-control">
+                                        @foreach ($articles as $cont)
+                                        <option value="{{ $cont->id }}">{{ $cont->title }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6 form-group text-center">
                                     <label for="">Image<span class="text-danger">*</span></label>
@@ -47,7 +59,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <button type="submit" class="btn btn-outline-success">Publier</button>
+                                <div class="col-md-10">
+                                    <button type="submit" class="btn btn-outline-success">Publier</button>
+                                </div>
                             </div>
                     </form>
                 </div>

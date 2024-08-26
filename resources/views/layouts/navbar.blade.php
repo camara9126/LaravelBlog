@@ -3,7 +3,7 @@
             <div class="container nav-container">
                 <div class="responsive-mobile-menu">
                     <div class="logo d-lg-none d-block">
-                        <a class="main-logo" href="{{ route('index') }}"><img src="assets/img/logo.png" alt="img"></a>
+                        <a class="main-logo" href="/"><img src="assets/img/logo-blog.png" alt="img"></a>
                     </div>
                     <button class="menu toggle-btn d-block d-lg-none" data-target="#nextpage_main_menu" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -19,22 +19,12 @@
                         <li class="current-menu-item">
                             <a href="/" class="text-warning">Accueil</a>
                         </li>  
-                                         
                         <li class="current-menu-item">
-                            <!-- <div class="dropdown"> -->
-                                <li class="current-menu-item text-white dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <a href="">Categories</a>
-                                </li>
-                                <div class="dropdown-menu">
-                                    @if($categorie->count() > 0)
-                                    @foreach($categorie as $cat)                                 
-                                    <a class="dropdown-item" href="{{ route('categorie.show',['categorie'=>$cat->id]) }}">{{$cat->nom}}</a>
-                                    @endforeach
-                                    @endif                            
-                                    <!-- <a class="dropdown-item" href="#">Something else here</a> -->
-                                </div>
-                            <!-- </div> -->
-                        </li>   
+                            <a href="{{route('about')}}" class="">A propos</a>
+                        </li>             
+                        <!-- <li class="current-menu-item text-white dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <a href="">Categories</a>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">
