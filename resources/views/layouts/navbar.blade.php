@@ -1,9 +1,9 @@
 <!-- navbar start -->
-<nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg">
             <div class="container nav-container">
                 <div class="responsive-mobile-menu">
                     <div class="logo d-lg-none d-block">
-                        <a class="main-logo" href="{{ route('index') }}"><img src="assets/img/logo.png" alt="img"></a>
+                        <a class="main-logo" href="/"><img src="assets/img/logo-blog.png" alt="img"></a>
                     </div>
                     <button class="menu toggle-btn d-block d-lg-none" data-target="#nextpage_main_menu" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -17,20 +17,34 @@
                 <div class="collapse navbar-collapse" id="nextpage_main_menu">
                     <ul class="navbar-nav menu-open">
                         <li class="current-menu-item">
-                            <a href="/">Home</a>
-                        </li>                        
+                            <a href="/" class="text-warning">Accueil</a>
+                        </li>  
+                        <li class="current-menu-item">
+                            <a href="{{route('about')}}" class="">A propos</a>
+                        </li>             
+                        <li class="current-menu-item">
+                            <a href="{{route('articles')}}">Articles</a>
+                        </li>
+                        <li class="current-menu-item">
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    Categories
+                                </a>
+                                <div class="dropdown-menu">
+                                    @if($categorie->count() > 0)
+                                    @foreach($categorie as $cat)
+                                    <a href="{{route('categorie.show',['categorie'=>$cat->id]) }}" class="dropdown-item bg-info">{{$cat->nom}}</a>
+                                    @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                        </li>
                         <!-- <li class="current-menu-item">
-                            <a href="#trending">Trending News</a>
-                        </li>                         -->
-                        <!-- <li class="current-menu-item">
-                            <a href="#latest">Latest News</a>
-                        </li>                         -->
-                        <!-- <li class="current-menu-item">
-                            <a href="#grid">News Grid</a>
-                        </li>                         -->
-                        <!-- <li class="current-menu-item">
-                            <a target="_blank" href="https://1.envato.market/5OQX2">Pro Version</a>
+                            <a href="{{route('politic')}}">Politique et Conditions</a>
                         </li> -->
+                        <li class="current-menu-item">
+                            <a href="{{route('contact.index')}}">Contact</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">
@@ -44,5 +58,5 @@
                 </div>
             </div>
         </nav>
-    </div>
+
     <!-- navbar end -->

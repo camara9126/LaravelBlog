@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\article;
+use App\Models\Categorie;
+use App\Models\Pubs;
 
 class SearchController extends Controller
 {
@@ -12,12 +14,14 @@ class SearchController extends Controller
      */
     public function index(Request $request)
     {
+        $youtube= Pubs::all();
+        $categorie= Categorie::all();
         $search = $request->input('search');
-        $resultat = article::where('title', 'like', '%'.$search.'%')
-        ->orWhere('categorie', 'like', '%'.$search.'%')->get();
+        $resultat = article::where('title', 'like', '%'.$search.'%')->get();
         // dd($resultat);
-        return view('blog.search', compact('resultat'));
+        return view('blog.search', compact('resultat','categorie','youtube'));
     }
+
 
     /**
      * Show the form for creating a new resource.

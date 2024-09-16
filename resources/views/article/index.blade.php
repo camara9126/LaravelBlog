@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+@include('includes.header')
+   
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('success') }}
@@ -19,31 +19,11 @@
                 <a href="{{ route('article.create') }}" class="btn btn-primary">Ajout Article</a>
             </div>
         </div>
-        
-    </x-slot>
 
     <div class="py-12">
         
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <!-- <div class="row ">
-                        @if($article->count() > 0)
-                        @foreach($article as $a)
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img src="{{ asset($a->image) }}"  class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <b class="">{{ $a->title }}</b>
-                                    <p class="text-secondary">{{ $a->created_at }}</p>
-                                    <a href="{{ route('article.show', $a) }}" class="btn btn-primary text-center">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        @else
-                        <p>pas d'article</p>
-                        @endif
-                </div> -->
                 <div class="row">
                     <div class="col-md-12">
                     <table class="table table-bordered">
@@ -52,6 +32,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Titre</th>
+                                <th scope="col">Categorie</th>
                                 <th scope="col">Date Creation</th>
                                 <th scope="col">Statut</th>
                                 <th scope="col">Action</th>
@@ -66,6 +47,13 @@
                                     <img src="{{asset($a->image)}}" width="150" alt="">
                                 </td>
                                 <td>{{$a->title}}</td>
+                                <td>
+                                    @foreach($categorie as $cat)
+                                    @if($cat->id == $a->category_id)
+                                        {{$cat->nom}}
+                                    @endif
+                                    @endforeach
+                                </td>
                                 <td>{{$a->created_at}}</td>
                                 <td>
                                     @if ($a->status)
@@ -98,7 +86,9 @@
                     </table>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
     
-</x-app-layout>
+    @include('includes.footer')
+

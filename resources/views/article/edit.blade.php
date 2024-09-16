@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+@include('includes.header')
+
         <div class="row">
             <div class="col-md-10">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -10,7 +10,6 @@
                 <a href="{{ route('article.index') }}" class="btn btn-danger">Annuler </a>
             </div>
         </div>
-    </x-slot>
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -22,7 +21,12 @@
                         <div class="row">
                             <div class="col-md-6 form-group text-center">
                                 <label for="">Categorie <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control text-center" value="{{$article->categorie }}" name="categorie" required>
+                                <select name="category_id" id="" class="form-control" required>
+                                    <option value="">Veuillez choisir une categorie</option>
+                                    @foreach($categorie as $cat)
+                                    <option value="{{$cat->id}}">{{strtoupper($cat->nom)}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-6 form-group text-center">
                                 <label for="">Auteur <span class="text-danger">*</span></label>
@@ -68,4 +72,4 @@
             content.value = quill.root.innerHTML;
         };
     </script>
-</x-app-layout>
+@include('includes.footer')

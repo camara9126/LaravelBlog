@@ -16,10 +16,15 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('image')->nullable();
-             $table->string('auteur');
-             $table->string('categorie');
-             $table->integer('status')->default('1');
+            $table->string('auteur');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->integer('status')->default('0');
             $table->timestamps();
+
+            $table->foreign('category_id')
+            ->references('id')
+            ->on('categories')
+            ->onDelete('set null');
         });
     }
 

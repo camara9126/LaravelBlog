@@ -13,7 +13,7 @@ class article extends Model
         'title',
         'content',
         'image',
-        'categorie',
+        'category_id',
         'auteur',
         'status',
     ];
@@ -21,6 +21,11 @@ class article extends Model
     public function commentaire()
     {
         return $this->hasMany(commentaire::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsTo(categorie::class);
     }
 
 }

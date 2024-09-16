@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\article;
+use App\Models\Categorie;
+use App\Models\commentaire;
+use App\Models\Pubs;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -13,8 +16,11 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        $categorie = Categorie::all();
+        // $articles = $category->articles;
+
         $article= article::orderBy('created_at', 'DESC')->get();
-        return view('article.index',compact('article'));
+        return view('article.index',compact('article','categorie'));
     }
 
     /**
@@ -22,7 +28,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        $categorie = Categorie::all();
+        return view('article.create',compact('categorie'));
     }
 
     /**
@@ -34,7 +41,7 @@ class ArticleController extends Controller
             'title' => 'required|unique:articles',
             'content' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'categorie' => 'required',
+            'category_id' => 'required',
             'auteur' => 'required'
             ]);
 
@@ -52,9 +59,9 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(article $article)
+    public function show(string $id)
     {
-        return view('article.view', compact('article'));
+        //
     }
 
     /**
@@ -62,8 +69,9 @@ class ArticleController extends Controller
      */
     public function edit(article $article)
     {
+        $categorie = Categorie::all();
         // dd($article);
-        return view('article.edit', compact('article'));
+        return view('article.edit', compact('article','categorie'));
     }
 
     /**
@@ -72,10 +80,10 @@ class ArticleController extends Controller
     public function update(Request $request, article $article)
     {
         $validatedData= $request->validate([
-            'title' => 'required|unique:articles',
+            'title' => 'required',
             'content' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'categorie' => 'required',
+            'category_id' => 'required',
             'auteur' => 'required'
             ]);
 
@@ -106,7 +114,7 @@ class ArticleController extends Controller
     public function activate(article $article)
     {
         $article->update(['status' => true]);
-        return redirect()->back()->with('success', 'Article activé avec succès.');
+        return redirect()->back()->with('success', 'Article desactivé avec succès.');
     }
     /**
      * desactiver un article
@@ -114,13 +122,16 @@ class ArticleController extends Controller
     public function deactivate(article $article)
     {
         $article->update(['status' => false]);
-        return redirect()->back()->with('success', 'Article désactivé avec succès.');
+        return redirect()->back()->with('success', 'Article activé avec succès.');
     }
     
     // fonction view article pour l'user
     public function view(article $article)
     {
-        return view('blog.view', compact('article'));
+        $comment= commentaire::all();
+        $youtube= Pubs::all();
+        $categorie = Categorie::all();
+        return view('blog.view', compact('article','categorie','youtube','comment'));
     }
 
    
