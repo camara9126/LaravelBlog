@@ -30,14 +30,16 @@ class CommentaireController extends Controller
         return redirect()->back()->with('success', 'Commentaire ajouté avec success !');
     }
 
-    public function destroy(commentaire $comment)
+    public function destroy($c)
     {
-        if (auth()->id == $comment->article_id) {
+        // if (auth()->id == $comment->article_id) {
+            $comment= commentaire::findOrFail($c);
             $comment->delete();
-            return redirect()->back()->with('success', 'Comment deleted!');
-        }
 
-        return redirect()->back()->with('error', 'You can only delete your own comments.');
+            return redirect()->back()->with('success', 'Commentaire supprimée!');
+        // }
+
+        // return redirect()->back()->with('error', 'You can only delete your own comments.');
     }
 }
 

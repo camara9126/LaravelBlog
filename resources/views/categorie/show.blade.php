@@ -13,7 +13,34 @@
     </div>
 
         <div class="container mt-5">
-            <div class="row mb-5 mt-5">
+            <div class="row mb-5 mt-5">      
+                <div class="col-lg-9 bg-sky col-md-6">
+                    <div class="section-title text-center">
+                        <h4 class="title">{{strtoupper($categorieshow->nom)}}</h4>
+                    </div>
+                   <ul class="" type="circle">
+                        @if($categorieshow->count() > 0)
+                        @foreach($article as $art)
+                        @if($categorieshow->id == $art->category_id)
+                    
+                    <div class="service d-flex h-100 pt-2">
+                        <div class="service-number mr-4">
+                            <img src="{{asset($art->image)}}" alt="img">
+                        </div>
+                        <div class="service-about">
+                            <h5>
+                                <a href="{{route('article.view', $art)}}">{{$art->title}}</a>
+                            </h5>
+                            <p>{!!Str::limit($art->content, 90)!!}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                    @else
+                        <p>pas d'article disponible pour ce theme !</p>
+                    @endif
+                   </ul>
+                </div>
                 <div class="col-lg-3 bg-sky col-md-6">
                     <div class="section-title">
                         <h5 class="title">Vos articles par theme</h5>
@@ -45,103 +72,34 @@
                                 @endforeach
                             </div>
                     <!-- </div> -->
-                </div>
-                <div class="col-lg-9 bg-sky col-md-6">
-                    <div class="section-title text-center">
-                        <h4 class="title">{{strtoupper($categorieshow->nom)}}</h4>
-                    </div>
-                   <ul class="" type="circle">
-                        @if($categorieshow->count() > 0)
-                        @foreach($article as $art)
-                        @if($categorieshow->id == $art->category_id)
-                    
-                    <div class="service d-flex h-100 pt-2">
-                        <div class="service-number mr-4">
-                            <img src="{{asset($art->image)}}" alt="img">
-                        </div>
-                        <div class="service-about">
-                            <h5>
-                                <a href="{{route('article.view', $art)}}">{{$art->title}}</a>
-                            </h5>
-                            <p>{!!Str::limit($art->content, 90)!!}</p>
-                        </div>
-                    </div>
-                    @endif
-                    @endforeach
-                    @else
-                        <p>pas d'article disponible pour ce theme !</p>
-                    @endif
-                   </ul>
-                </div>
+                </div>                
             </div>
         </div>
 
         <div class="container bg-black mb-5">
             <div class="row pt-5">
+                @if($categorieshow->count() > 0)
+                @foreach($article as $art)
+                @if($categorieshow->id == $art->category_id)
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-post-wrap style-white">
                         <div class="thumb">
-                            <img src="../assets/img/post/1.png" alt="img">
-                            <a class="tag-base tag-blue" href="#">Tech</a>
+                            <img src="{{asset($art->image)}}" alt="img">
+                            <!-- <a class="tag-base tag-blue" href="#">{{$categorieshow->nom}}</a> -->
                         </div>
                         <div class="details">
-                            <h6 class="title"><a href="#">The FAA will test drone detecting technologies in airports this year</a></h6>
+                            <h6 class="title"><a href="{{route('article.view', $art)}}">{{$art->title}}</a></h6>
                             <div class="post-meta-single mt-3">
                                 <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
+                                    <li><i class="fa fa-clock-o"></i>{{$art->created_at->format('d:m:y')}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white">
-                        <div class="thumb">
-                            <img src="../assets/img/post/2.png" alt="img">
-                            <a class="tag-base tag-orange" href="#">Food</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="#">Rocket Lab will resume launches no sooner than August 27th</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white">
-                        <div class="thumb">
-                            <img src="../assets/img/post/3.png" alt="img">
-                            <a class="tag-base tag-blue" href="#">Tech</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="#">Google Drive flaw may attackers fool you into install malware</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white">
-                        <div class="thumb">
-                            <img src="../assets/img/post/4.png" alt="img">
-                            <a class="tag-base tag-orange" href="#">Food</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="#">TikTok will sue the US over threatened ban</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endif
+                @endforeach
+                @endif
             </div>
         </div> 
    

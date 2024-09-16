@@ -1311,7 +1311,7 @@ ul {
   object-fit: cover; /* Options: cover, contain, fill, scale-down, none */
 }
 
-.thumbs{
+/* .thumbs{
   width: 280px; 
   height: 200px; 
   overflow: hidden;
@@ -1320,7 +1320,7 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 
 .youtube{
   width: 40%; 
@@ -1333,6 +1333,45 @@ ul {
   object-fit: cover;
 }
 
+main {
+  padding: 20px;
+}
+
+.articles-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.articles-section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.article-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.article-card h2 {
+  margin-top: 0;
+}
+
+.article-card p {
+  line-height: 1.6;
+}
 
 .thumball{
   width: 260px; 
@@ -1408,7 +1447,6 @@ ul {
   height: 100%;
   object-fit: cover;
 }
-
 
 /****** video play btn *******/
 .play-btn-large {
@@ -1612,10 +1650,14 @@ ul {
 }
 .widget-author .thumb {
   margin-bottom: 15px;
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
 }
 .widget-author .thumb img {
-  height: 150px;
-  width: 150px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   border-radius: 50%;
   display: inline-block;
   border: 10px solid #f3f9eb;

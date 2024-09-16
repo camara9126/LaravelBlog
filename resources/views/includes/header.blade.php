@@ -1,3 +1,10 @@
+<?php
+
+    use App\Models\contact;
+
+    $message= contact::all();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +23,7 @@
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
     <link href="{{asset('themes/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('themes/css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -38,9 +43,9 @@
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard.index') }}">
                     <div class="sidebar-brand-icon">
-                        <img src="../assets/img/logo-blog.png" width="50" alt="img">
+                        <img src="../assets/img/logo-6.png" width="50" alt="img">
                     </div>
-                    <div class="sidebar-brand-text mx-3">Dashboard</div>
+                    <!-- <div class="sidebar-brand-text mx-3">Dashboard</div> -->
                 </a>
 
 
@@ -48,7 +53,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('dashboard.index')}}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Accueil</span></a>
+                        <span>Tableau De Bord</span></a>
                 </li>
 
                 <!-- Divider -->
@@ -78,9 +83,9 @@
                         <span>Blog Home</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="">
-                        <i class="fas fa-fw fa-search"></i>
-                        <span>Recherches</span></a>
+                    <a class="nav-link" href="{{route('message')}}">
+                        <i class="fas fa-fw fa-envelope"></i>
+                        <span>Messages <sup class="text-warning">{{$message->count()}}</sup></span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -117,7 +122,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                        <img class="img-profile rounded-circle" src="assets/images/profil.png">
+                                        <img class="img-profile rounded-circle" src="assets/img/logo-6.png">
                                     </a>
                                     <!-- Dropdown - User Information -->
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

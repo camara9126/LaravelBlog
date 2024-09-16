@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Le Guide Quotidien</title>
+    <title>Articles Disponibles | Le Guide Quotidien</title>
     
     <!-- favicon -->
     <link rel=icon href="{{ asset('assets/img/logo-blog.png') }}" sizes="10x10" type="image/png">
@@ -46,7 +46,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-7 align-self-center">
-                        <div class="topbar-menu text-md-left text-left">
+                        <div class="topbar-menu text-md-left text-center">
                             <ul class="align-self-center">
                                 <li><a href="{{route('politic')}}"> Politique de Confidentialité et Conditions d’Utilisation </a></li>
                                 <!-- <li><a href="#">Advertisment</a></li>
@@ -120,3 +120,81 @@
         <!-- adbar end-->
 
         @include('layouts.navbar')
+
+    <!-- Theme list  -->
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-12 col-sm-12">
+                <div class="widget widget_tag_cloud">
+                    <h5 class="widget-title text-center">THEMES</h5>
+                    <div class="tagcloud text-center">
+                        @if($categorie->count() > 0)
+                        @foreach($categorie as $cat)                           
+                        <a href="{{route('categorie.show',['categorie'=>$cat->id]) }}" class="text-info">{{$cat->nom}}</a>
+                        @endforeach
+                        @endif
+                        <!-- <a href="#">Video</a>
+                        <a href="#">App</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Theme list  -->
+
+    <!-- tous les articles -->
+    <main class="mb-3">
+        <section class="articles-section">
+            <h3>Nos Articles</h3>
+            <div class="articles-container">
+                @if($articles->count() > 0 )
+                @foreach($articles as $art)
+                @if($art->status == 0)
+                <article class="article-card">
+
+                    <div class="single-post-wrap style-overlay">
+                        <div class="thumb">
+                        <a class="tag-base tag-blue" href="#">
+                            @foreach($categorie as $cat)
+                            @if($cat->id == $art->category_id)
+                                {{$cat->nom}}
+                            @endif
+                            @endforeach
+                        </a>
+                            <img src="{{$art->image}}" alt="">
+                        </div>
+                    </div>
+                    <div class="details">
+                        <h6>{{$art->title}}</h6>
+                        <p>{!!Str::limit($art->content, 70)!!}</p>
+                        <a href="{{route('article.view', $art)}}" class="btn btn-primary">Lire la suite</a>
+                    </div>
+                </article>
+                @endif
+                @endforeach
+                @endif
+            </div>
+        </section>
+    </main>
+
+     <!-- Publicités YouTube -->
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-sm-6 col-md-10">
+                <div>
+                    <img src="../assets/img/youtube.png" width="50%" class="text-center" alt="youtube">
+                </div>
+                <div>
+                    <em>
+                        Découvrez notre chaîne YouTube, où nous approfondissons les sujets qui vous intéressent le plus ! Si vous aimez les articles que vous lisez ici, vous adorerez nos vidéos riches en contenu, conseils pratiques, et analyses détaillées. <br>
+                        Abonnez-vous pour ne rien manquer et profitez d'une nouvelle manière d'explorer nos thématiques avec des vidéos captivantes et informatives. <br>
+                        Rejoignez-nous sur YouTube et enrichissez votre expérience en apprenant avec nous au quotidien !
+                    </em>
+                </div>
+            </div>
+        </div>
+      </div>
+        
+    <hr>
+
+@include('partials.footer')

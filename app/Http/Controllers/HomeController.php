@@ -30,10 +30,12 @@ class HomeController extends Controller
         //
     }
 
-   
-    public function store()
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        return view('blog.about');
+        //
     }
 
     /**

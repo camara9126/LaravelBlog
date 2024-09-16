@@ -13,8 +13,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
+        $article= article::all();
         $categorie= Categorie::orderBy('created_at', 'DESC')->get();
-        return view('categorie.index', compact('categorie'));
+        return view('categorie.index', compact('categorie','article'));
     }
 
     /**

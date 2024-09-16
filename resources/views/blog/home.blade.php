@@ -29,7 +29,7 @@
         </div>
         <!-- banner area end -->
 
-        <!-- <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-post-wrap style-white">
@@ -96,11 +96,11 @@
                     </div>
                 </div>
             </div>
-        </div>   -->
+        </div>  
     </div>
     <!-- banner area end -->
         
-    <!-- categories list  -->
+    <!-- Theme list  -->
     <div class="container">
         <div class="row mt-3">
             <div class="col-lg-12 col-sm-12">
@@ -119,7 +119,7 @@
             </div>
         </div>
     </div>
-    <!-- categories list  -->
+    <!-- Theme list  -->
 
     <!-- Trending Start-->
     <div class="post-area pd-top-50 pd-bottom-50" id="trending">
@@ -189,8 +189,8 @@
                     <div class="post-slider owl-carousel">
                         <div class="item">
                             <div class="single-post-wrap">
-                                <!-- <div class="thumbs"> -->
-                                    <a href="https://youtube.com/@AmadouCamara-v3e" target="_blank">
+                                <!-- <div class="thumb"> -->
+                                    <a href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank">
                                         <img src="assets/img/youtube.png" width="900" alt="img">
                                     </a>
                                 <!-- </div> -->
@@ -250,7 +250,7 @@
                             <li><a class="facebook" href="#"><i class="fa fa-facebook social-icon"></i><span>12,300</span><span>Like</span> <i class="fa fa-plus"></i></a></li>
                             <li><a class="twitter" href="#"><i class="fa fa-twitter social-icon"></i><span>12,600</span><span>Followers</span> <i class="fa fa-plus"></i></a></li>
                             <li>
-                                <a class="youtube" href="https://youtube.com/AmadouCamara-v3e" target="_blank">
+                                <a class="youtube" href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank">
                                     <i class="fa fa-youtube-play social-icon"></i><span>1,300</span><span>Subscribers</span> <i class="fa fa-plus"></i>
                                 </a>
                             </li>
@@ -260,12 +260,12 @@
                     </div>
                     <!-- <div class="add-area">
                         <h6><i class="fa fa-youtube"></i>
-                            <a href="https://youtube.com/AmadouCamara-v3e" target="_blank">
+                            <a href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank">
                                 Visiter notre chaine youtube
                             </a>
                         </h6>
                         <div class="add-area">
-                            <a href="https://youtube.com/AmadouCamara-v3e" target="_blank" class="">
+                            <a href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank" class="">
                                 <img src="assets/img/youtube.png" alt="img">
                             </a>
                         </div>
@@ -277,10 +277,14 @@
     <!-- Trending End-->
     
     <!--Categories 2 4 Start -->
-    <div class="pd-top-10 pd-bottom-10" id="grid">
-        <div class="container bg-sky">
+    <div class="pd-top-10 bg-sky pd-bottom-10" id="grid">
+        <div class="container">
             <div class="section-title text-center">
-                <h3 class="">Tech&Digital - Finance&Investissement <b>-></b></h3>
+                <div class="tagcloud text-center">
+                        <p class="badge">
+                            technologies & Digital - Finance & Investissement
+                        </p>
+                </div>
             </div>
             <div class="post-slider owl-carousel">
                 <div class="item">
@@ -288,24 +292,18 @@
                         @if($articles->count() > 0 )
                         @foreach($articles as $art)
                             @if($art->status == 0 && $art->category_id == 2)
-                            <div class="col-lg-3 col-sm-6">
+                            <div class="col-lg-3 col-sm-6 col-md-6">
                                 <input type="hidden" value="{{ $art->id }}">
                                 <div class="single-post-wrap style-overlay">
-                                    <div class="thumbs">
+                                    <div class="thumb">
                                         <img src="{{ $art->image }}" alt="img"><br>
-                                        <a class="tag-base tag-purple" href="{{ route('article.view', $art)}}">
-                                        @foreach($categorie as $cat)
-                                        @if($cat->id == $art->category_id)
-                                            {{$cat->nom}}
-                                        @endif
-                                        @endforeach
-                                        </a><br>
+                                        
                                     </div>
                                     <div class="details">
                                         <div class="post-meta-single">
                                             <p><i class="fa fa-clock-o"></i>{{$art->created_at->format('d/m/y')}}</p>
                                         </div>
-                                        <h6 class="title mb-0"><a href="{{ route('article.view', $art)}}">{{$art->title}} </a></h6>
+                                        <em class="title mb-0"><a href="{{ route('article.view', $art)}}">{{$art->title}} </a></em>
                                     </div>
                                 </div>
                             </div>
@@ -320,18 +318,12 @@
                             @if($articles->count() > 0 )
                             @foreach($articles as $art)
                                 @if($art->status == 0 && $art->category_id == 4)
-                                <div class="col-lg-3 col-sm-6">
+                                <div class="col-lg-3 col-sm-6 col-md-6">
                                     <input type="hidden" value="{{ $art->id }}">
                                     <div class="single-post-wrap style-overlay">
-                                        <div class="thumbs">
+                                        <div class="thumb">
                                             <img src="{{ $art->image }}" alt="img"><br>
-                                            <a class="tag-base tag-orange" href="{{ route('article.view', $art)}}">
-                                            @foreach($categorie as $cat)
-                                            @if($cat->id == $art->category_id)
-                                                {{$cat->nom}}
-                                            @endif
-                                            @endforeach
-                                            </a><br>
+                                            
                                         </div>
                                         <div class="details">
                                             <div class="post-meta-single">
@@ -353,10 +345,14 @@
     <!-- Categories 2 4 End-->
 
     <!--Categories 3 9 Start -->
-    <div class="pd-top-50 pd-bottom-50" id="grid">
-        <div class="container bg-sky">
+    <div class="pd-top-50 bg-sky pd-bottom-50" id="grid">
+        <div class="container">
             <div class="section-title text-center">
-                <h3 class="">Dev/personnel - Entrepreneuriat <b>-></b></h3>
+                <div class="tagcloud text-center">
+                        <p class="badge">
+                            Developpement Personnel - Entrepreneuriat
+                        </p>
+                </div>
             </div>
             <div class="post-slider owl-carousel">
                 <div class="item">
@@ -365,18 +361,12 @@
                         @if($articles->count() > 0 )
                         @foreach($articles as $art)
                             @if($art->status == 0 && $art->category_id == 3)
-                            <div class="col-lg-3 col-sm-6">
+                            <div class="col-lg-3 col-sm-6 col-md-6">
                                 <input type="hidden" value="{{ $art->id }}">
                                 <div class="single-post-wrap style-overlay">
-                                    <div class="thumbs">
+                                    <div class="thumb">
                                         <img src="{{ $art->image }}" alt="img"><br>
-                                        <a class="tag-base tag-purple" href="{{ route('article.view', $art)}}">
-                                            @foreach($categorie as $cat)
-                                            @if($cat->id == $art->category_id)
-                                                {{$cat->nom}}
-                                            @endif
-                                            @endforeach
-                                        </a><br>
+                                        
                                     </div>
                                     <div class="details">
                                         <div class="post-meta-single">
@@ -397,18 +387,12 @@
                             @if($articles->count() > 0 )
                             @foreach($articles as $art)
                                 @if($art->status == 0 && $art->category_id == 8)
-                                <div class="col-lg-3 col-sm-6">
+                                <div class="col-lg-3 col-sm-6 col-md-6">
                                     <input type="hidden" value="{{ $art->id }}">
                                     <div class="single-post-wrap style-overlay">
-                                        <div class="thumbs">
-                                            <img src="{{ $art->image }}" alt="img"><br>
-                                            <a class="tag-base tag-orange" href="{{ route('article.view', $art)}}">
-                                            @foreach($categorie as $cat)
-                                            @if($cat->id == $art->category_id)
-                                                {{$cat->nom}}
-                                            @endif
-                                            @endforeach
-                                            </a><br>
+                                        <div class="thumb">
+                                            <img src="{{ $art->image }}" alt="img">
+                                            
                                         </div>
                                         <div class="details">
                                             <div class="post-meta-single">
@@ -429,7 +413,36 @@
     </div>
     <!-- Categories 3 9 End-->
 
-    <!-- Categories 5 6 7 Start-->
+    <!--Grid Start-->
+    <div class="pd-top-80 pd-bottom-50" id="grid">
+        <div class="container">
+            <div class="row">
+                @if($articles->count() > 0 )
+                @foreach($articles as $art)
+                @if($art->status == 0)
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-post-wrap style-overlay">
+                        <div class="thumb">
+                            <img src="{{$art->image}}" alt="img">
+                        </div>
+                        <div class="details">
+                            <div class="post-meta-single">
+                                <p><i class="fa fa-clock-o"></i>{{$art->created_at->format('d:m:y')}}</p>
+                            </div>
+                            <h6 class="title"><a href="{{ route('article.view', $art)}}">{{$art->title}} </a></h6>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+                @endif
+               
+            </div>
+        </div>  
+    </div>
+    <!-- Grid End-->
+
+    <!-- All Categories  Start-->
     <div class="pd-top-50 pd-bottom-50" id="latest">
         <div class="container bg-sky">
             <div class="section-title text-center">
@@ -469,7 +482,7 @@
             </div>
         </div>
     </div>
-    <!--Categories 5 6 7 End-->
+    <!-- All Categories End-->
 
       
 @include('partials.footer')

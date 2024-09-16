@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('auteur');
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->integer('status')->default('1');
+            $table->integer('status')->default('0');
             $table->timestamps();
 
             $table->foreign('category_id')

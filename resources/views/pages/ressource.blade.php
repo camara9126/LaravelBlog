@@ -45,8 +45,8 @@
         <div class="topbar-area">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-7 align-self-center">
-                        <div class="topbar-menu text-md-left text-left">
+                    <div class="col-lg-6 col-md-7 align-self-left">
+                        <div class="topbar-menu text-md-left text-center">
                             <ul class="align-self-center">
                                 <li><a href="{{route('politic')}}"> Politique de Confidentialité et Conditions d’Utilisation </a></li>
                                 <!-- <li><a href="#">Advertisment</a></li>

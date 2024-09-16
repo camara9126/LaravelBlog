@@ -7,9 +7,12 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PubsController;
+use App\Models\article;
 use App\Models\Categorie;
+use App\Models\contact;
 use GuzzleHttp\Middleware;
 
 // page d'accueil blog
@@ -20,10 +23,39 @@ Route::resource('/', HomeController::class);
 //     return redirect()->intended(route('home.index', absolute: false));
 // });
 
+// mdp bdd-> Prc-y_v-A4Q9
+
+// mdp email-> HtrXHEU#[$Zy
+
+// page de about 
 Route::get('/about', function () {
     $categorie= Categorie::all();
-    return view('blog.about',compact('categorie'));
+    return view('pages.about',compact('categorie'));
 })->name('about');
+
+// page pour tous les articles
+Route::get('/articles', function () {
+    $articles= article::all();
+    $categorie= Categorie::all();
+    return view('pages.article',compact('articles','categorie'));
+})->name('articles');
+
+// page pour les Politique de Confidentialité et Conditions d’Utilisation
+Route::get('/politique', function () {
+    $categorie= Categorie::all();
+    return view('pages.politique',compact('categorie'));
+})->name('politic');
+
+// page de contact user
+ Route::resource('/contact', ContactController::class);
+ Route::get('/contact/{contact}',[ContactController::class, 'view'])->name('contact.view');
+ Route::get('/contact/{contact}',[ContactController::class, 'destroy'])->name('contact.destroy');
+ 
+ // page de message admin
+ Route::get('/message', function () {
+    $contact= contact::all();
+    return view('contact.message', compact('contact'));
+    })->middleware('auth','verified')->name('message');
 
 
 // barre de recherche 
@@ -52,7 +84,19 @@ Route::group(['middleware'=>'auth','verified'],
 
 // route pour les categories 
 
-        Route::resource('/categorie', CategorieController::class);
+   Route::resource('/categorie', CategorieController::class);
+
+//    code google analytic
+//    <!-- Google tag (gtag.js) -->
+//    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDYJ6K18FP"></script>
+//    <script>
+//      window.dataLayer = window.dataLayer || [];
+//      function gtag(){dataLayer.push(arguments);}
+//      gtag('js', new Date());
+   
+//      gtag('config', 'G-DDYJ6K18FP');
+//    </script>
+
 
 
 // activer/desactiver un article 
@@ -62,7 +106,7 @@ Route::patch('/article/{article}/desactivate', [ArticleController::class, 'deact
 
 // route pour les commentaires 
 Route::post('/article/{article}/commentaire', [CommentaireController::class, 'store']);
-Route::delete('/commentaire/{commentaire}', [CommentaireController::class, 'destroy']);
+Route::delete('/commentaire/{commentaire}', [CommentaireController::class, 'destroy'])->name('commentaire.destroy');
 Route::get('/commentaire', [CommentaireController::class, 'index'])->name('commentaire');
 
 

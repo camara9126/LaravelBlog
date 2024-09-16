@@ -32,11 +32,13 @@
                             <th scope="col">#</th>
                             <th scope="col">Image</th>
                             <th scope="col">Nom</th>
+                            <th scope="col">Nbr Article</th>
                             <th scope="col">Description</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                           
                             @if($categorie->count() > 0)
                             @foreach($categorie as $cat)
                             <tr>
@@ -45,6 +47,13 @@
                                 <img src="{{asset($cat->image)}}" width="200" alt="">
                             </td>
                             <td>{{$cat->nom}}</td>
+                            <td>
+                                @foreach($article as $art)
+                                @if($art->category_id == $cat->id)
+                                    <span class="badge badge-primary">{{$cat->count()}}</span>
+                                @endif
+                                @endforeach
+                            </td>
                             <td>{{$cat->description}}</td>
                             <td>
                                 <a href="{{ route('categorie.edit',['categorie'=>$cat->id]) }}" class="btn btn-warning"><img src="img/mise-a-jour.png" width="20" alt=""></a>

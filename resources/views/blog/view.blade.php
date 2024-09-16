@@ -1,4 +1,5 @@
 @include('partials.entete')
+
     <div class="container mb-5">
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
@@ -103,11 +104,11 @@
                     <img src="../assets/img/youtube.png" width="80%" alt="youtube">
                 </div>
                 <div>
-                    <h6>
+                    <em>
                         Découvrez notre chaîne YouTube, où nous approfondissons les sujets qui vous intéressent le plus ! Si vous aimez les articles que vous lisez ici, vous adorerez nos vidéos riches en contenu, conseils pratiques, et analyses détaillées. <br>
                         Abonnez-vous pour ne rien manquer et profitez d'une nouvelle manière d'explorer nos thématiques avec des vidéos captivantes et informatives. <br>
                         Rejoignez-nous sur YouTube et enrichissez votre expérience en apprenant avec nous au quotidien !
-                    </h6>
+                    </em>
                 </div>
             </div>
         </div>

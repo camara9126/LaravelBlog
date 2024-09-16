@@ -13,7 +13,7 @@
                                 <li><a class="facebook-icon" href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="twitter-icon" href=""><i class="fa fa-twitter"></i></a></li>
                                 <li>
-                                    <a class="youtube-icon" href="https://youtube.com/AmadouCamara-v3e" target="_blank">
+                                    <a class="youtube-icon" href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank">
                                         <i class="fa fa-youtube-play"></i>
                                     </a>
                                 </li>
@@ -87,9 +87,13 @@
             </div>
             <div class="footer-bottom text-center">
                 <ul class="widget_nav_menu">
-                    <li><a href="about" title="A propos">A Propos</a></li>
+                <li><a href="about" title="A propos">A Propos</a></li>
+                <li>
+                    <a href="{{route('politic')}}" title=" Politique de Confidentialité et Conditions d’Utilisation ">
+                    Nos Politiques</a>
+                </li>
                     <li>
-                        <a href="https://youtube.com/AmadouCamara-v3e" target="_blank" title="notre chaine you-tube">
+                        <a href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank" title="notre chaine you-tube">
                         Chaine <i class="fa fa-youtube"></i>
                         </a>
                     </li>
