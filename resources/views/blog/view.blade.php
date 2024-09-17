@@ -3,7 +3,7 @@
     <div class="container mb-5">
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
-                    {{ Session::get('success') }}
+                    <h5 class="text-center text-success">{{ Session::get('success') }}</h5>
                 </div>
             @elseif(Session::has('danger'))
                 <div class="alert alert-danger" role="alert">
@@ -31,13 +31,25 @@
                     </div>
                 </div>
                 <div class="row mt-3 mb-4">
-                    <div class="col-md-10">
-                        <form action="{{ url('article/'.$article->id.'/commentaire') }}" class="border" method="POST">
+                    <div class="col-md-10 bg-light">
+                        <h5 class="text-center pt-2">Cette article vous plaisent, merci de Commenter !</h5>
+                        <form action="{{ url('article/'.$article->id.'/commentaire') }}" class="" method="POST">
                             @csrf
-                            <h6><i>Commentaire :</i></h6>
                             <div class="form-group">
-                                <textarea name="content" class="form-control" ></textarea>
-                                <button type="submit" class="btn btn-outline-success">Commenter</button>
+                                <label for="name"><h6>Nom :</h6></label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email"><h6>Email :</h6></label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comment"><h6>Votre Commentaire :</h6></label>
+                                <textarea name="content" class="form-control" rows="5" required></textarea>
+                            </div>
+                                <button type="submit" class="btn btn-outline-success">Envoyer le commentaire</button>
                             </div>
                             
                         </form>

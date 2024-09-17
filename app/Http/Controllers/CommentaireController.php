@@ -19,11 +19,15 @@ class CommentaireController extends Controller
     public function store(Request $request, article $article)
     {
         $request->validate([
+            'name' => 'required',
+            'email' => 'required',
             'content' => 'required',
         ]);
 
         $comment = new commentaire();
         $comment->article_id = $article->id;
+        $comment->name = $request->name;
+        $comment->email = $request->email;
         $comment->content = $request->content;
         $comment->save();
 

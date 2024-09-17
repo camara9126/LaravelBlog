@@ -86,18 +86,6 @@ Route::group(['middleware'=>'auth','verified'],
 
    Route::resource('/categorie', CategorieController::class);
 
-//    code google analytic
-//    <!-- Google tag (gtag.js) -->
-//    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDYJ6K18FP"></script>
-//    <script>
-//      window.dataLayer = window.dataLayer || [];
-//      function gtag(){dataLayer.push(arguments);}
-//      gtag('js', new Date());
-   
-//      gtag('config', 'G-DDYJ6K18FP');
-//    </script>
-
-
 
 // activer/desactiver un article 
 Route::patch('/article/{article}/activate', [ArticleController::class, 'activate'])->name('article.activate');

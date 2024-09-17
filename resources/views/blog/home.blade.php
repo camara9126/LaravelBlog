@@ -484,5 +484,101 @@
     </div>
     <!-- All Categories End-->
 
+    <!-- Testimonial Start -->
+    <section id="temoin">
+            <div class="container-fluid testimonial py-5 mb-2">
+                <div class="container">
+                    <div class="text-center mx-auto pb-2 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+                        <h5 class="text-primary">Nos Temoignages</h5>
+                        <h1>Nos Clients Disent !</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="post-slider owl-carousel " data-wow-delay=".5s">
+                                <div class="item p-2">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="single-post-list-wrap">
+                                                <div class="media">
+                                                    <div class="media-body border-top">
+                                                        <h4 class="text-secondary">Client </h4>
+                                                        
+                                                        <p class="m-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
+                                                        <p class="mb-0 pt-3">Profession</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="single-post-list-wrap">
+                                                <div class="media">
+                                                    <div class="media-body border-top">
+                                                        <h4 class="text-secondary">Client </h4>
+                                                        <p class="m-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
+                                                        <p class="mb-0 pt-3">Profession</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="single-post-list-wrap">
+                                                <div class="media">
+                                                    <div class="media-body border-top">
+                                                        <h4 class="text-secondary">Client </h4>
+                                                        <p class="m-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
+                                                        <p class="mb-0 pt-3">Profession</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item p-2">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="single-post-list-wrap">
+                                                <div class="media">
+                                                    <div class="media-body border-top">
+                                                        <h4 class="text-secondary">Client </h4>
+                                                        <p class="m-0 pb-3">Profession</p>
+                                                        <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="single-post-list-wrap">
+                                                <div class="media">
+                                                    <div class="media-body border-top">
+                                                        <h4 class="text-secondary">Client </h4>
+                                                        <p class="m-0 pb-3">Profession</p>
+                                                        <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="single-post-list-wrap">
+                                                <div class="media">
+                                                    <div class="media-body border-top">
+                                                        <h4 class="text-secondary">Client </h4>
+                                                        <p class="m-0 pb-3">Profession</p>
+                                                        <p class="mb-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+            
+
+        <!-- Testimonial End -->
       
 @include('partials.footer')

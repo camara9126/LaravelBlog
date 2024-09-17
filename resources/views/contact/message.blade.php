@@ -29,6 +29,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                <th scope="col">ID</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Sujet</th>
@@ -36,16 +37,20 @@
                                 <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            @if($contact->count() > 0)
                             @foreach($contact as $c)
                             <tbody>
                                 <tr>
+                                    <th>{{$c->id}}</th>
                                     <th>{{$c->created_at}}</th>
                                     <td>{{$c->name}}</td>
                                     <td>{{$c->subject}}</td>
                                     <td>{{$c->email}}</td>
                                     <td>
-                                        <a href="{{route('contact.destroy',['contact' => $c->id])}}" class="btn btn-outline-danger">Supprimer</a>
+                                        <form action="{{ route('contact.destroy', $c) }}" type="button" method="post" onsubmit="return confirm('Supprimer ?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-outline-danger"><img src="img/poubelle.png" width="20" alt=""></button>
+                                    </form>
                                     </td>
                                 </tr>
                                 <tr>
@@ -54,7 +59,6 @@
                                 </tr>                                
                             </tbody>
                             @endforeach
-                            @endif
                         </table>
                     </div>
                 </div>

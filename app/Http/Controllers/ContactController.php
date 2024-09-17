@@ -77,6 +77,6 @@ class ContactController extends Controller
         $contact= contact::findOrFail($c);
         $contact->delete();
 
-        return view('contact.message',compact('contact'))->with('success', 'message supprimé avec succès');
+        return redirect()->route('message',compact('contact'))->with('success', 'message supprimé avec succès');
     }
 }

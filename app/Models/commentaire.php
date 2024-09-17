@@ -10,6 +10,8 @@ class commentaire extends Model
 {
     protected $fillable = [
         'article_id',
+        'name',
+        'email',
         'content',
     ];
 
