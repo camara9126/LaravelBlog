@@ -497,23 +497,31 @@
                             <div class="post-slider owl-carousel " data-wow-delay=".5s">
                                 <div class="item p-2">
                                     <div class="row">
-                                        <div class="col-lg-4">
+                                        @foreach($comment as $com)
+                                        <div class="col-lg-4 mb-3">
                                             <div class="single-post-list-wrap">
                                                 <div class="media">
                                                     <div class="media-body border-top">
-                                                        <h4 class="text-secondary">Client </h4>
+                                                        <h4 class="text-secondary">{{$com->name}} </h4>
                                                         
-                                                        <p class="m-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
-                                                        <p class="mb-0 pt-3">Profession</p>
+                                                        <p class="m-0"><sup>Article:</sup>
+                                                            @foreach($articles as $a)
+                                                            @if($a->id == $com->article_id)
+                                                                {{$a->title}}
+                                                            @endif
+                                                            @endforeach
+                                                            <p class="mb-0 pt-3 ">{{$com->content}}</p>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
                                         <div class="col-lg-4">
                                             <div class="single-post-list-wrap">
                                                 <div class="media">
                                                     <div class="media-body border-top">
-                                                        <h4 class="text-secondary">Client </h4>
+                                                        <h4 class="text-secondary">nom </h4>
                                                         <p class="m-0">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum aliquam dolor eget urna. Nam volutpat libero sit amet leo cursus, ac viverra eros morbi quis quam mi.</p>
                                                         <p class="mb-0 pt-3">Profession</p>
                                                     </div>

@@ -13,6 +13,7 @@ use App\Http\Controllers\PubsController;
 use App\Models\article;
 use App\Models\Categorie;
 use App\Models\contact;
+use App\Models\commentaire;
 use GuzzleHttp\Middleware;
 
 // page d'accueil blog

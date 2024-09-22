@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\article;
 use App\Models\Categorie;
 use App\Models\Pubs;
+use App\Models\commentaire;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,8 +18,9 @@ class HomeController extends Controller
         $categorie= Categorie::all();
         $articles= article::all();
         $youtube= Pubs::all();
+        $comment= commentaire::all();
         // dd($articles);
-    return view('blog.home', compact('articles','youtube','categorie'));
+    return view('blog.home', compact('articles','youtube','categorie','comment'));
     }
 
 

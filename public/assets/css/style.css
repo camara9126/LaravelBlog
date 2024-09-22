@@ -2499,9 +2499,14 @@ main {
   position: relative;
   margin-bottom: 27px;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
 }
 .single-post-wrap .thumb img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2px;
   transition: 0.8s;
   transform: scale(1.01);
 }
