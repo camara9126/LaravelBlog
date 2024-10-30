@@ -19,11 +19,6 @@ use GuzzleHttp\Middleware;
 // page d'accueil blog
 Route::resource('/', HomeController::class);
 
-// retourne '/' sur la route 'home'
-// Route::get('/', function () {
-//     return redirect()->intended(route('home.index', absolute: false));
-// });
-
 // mdp bdd-> Prc-y_v-A4Q9
 
 // mdp email-> HtrXHEU#[$Zy

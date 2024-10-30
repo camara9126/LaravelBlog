@@ -2,7 +2,6 @@
 
     <!-- banner area start -->
     <div class="banner-area banner-inner-1 bg-info" id="banner">
-        <!-- banner area start -->
         <div class="banner-inner pt-5">
             <div class="container">
                 <div class="row">
@@ -27,76 +26,6 @@
                 </div>
             </div>
         </div>
-        <!-- banner area end -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white">
-                        <div class="thumb">
-                            <img src="assets/img/post/1.png" alt="img">
-                            <a class="tag-base tag-blue" href="#">Tech</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="#">The FAA will test drone detecting technologies in airports this year</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white">
-                        <div class="thumb">
-                            <img src="assets/img/post/2.png" alt="img">
-                            <a class="tag-base tag-orange" href="#">Food</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="#">Rocket Lab will resume launches no sooner than August 27th</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white">
-                        <div class="thumb">
-                            <img src="assets/img/post/3.png" alt="img">
-                            <a class="tag-base tag-blue" href="#">Tech</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="#">Google Drive flaw may attackers fool you into install malware</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white">
-                        <div class="thumb">
-                            <img src="assets/img/post/4.png" alt="img">
-                            <a class="tag-base tag-orange" href="#">Food</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="#">TikTok will sue the US over threatened ban</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
     </div>
     <!-- banner area end -->
         
@@ -120,6 +49,38 @@
         </div>
     </div>
     <!-- Theme list  -->
+
+    <!-- Les plus vues Start -->
+    <div class="container bg-info">
+        <div class="section-title">
+            <h6 class="title">Les Plus Visités</h6>
+        </div>
+        <div class="row">
+            @if($articles->count() > 0 )
+            @foreach($recentArticles as $recent)
+            @if($recent->click_count >= 3)
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-post-wrap style-white pt-2">
+                        <div class="thumb">
+                            <img src="{{ $recent->image }}" alt="img">
+                            <a class="tag-base tag-blue" href="#">Tech</a>
+                        </div>
+                        <div class="details">
+                            <h6 class="title"><a href="{{ route('article.view', $recent)}}">{{ $recent->title }}</a></h6>
+                            <div class="post-meta-single mt-3">
+                                <ul>
+                                    <li><i class="fa fa-clock-o"></i>{{ $recent->created_at }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @endforeach
+            @endif
+        </div>
+    </div> 
+        <!-- Les plus vues End  -->
 
     <!-- Trending Start-->
     <div class="post-area pd-top-50 pd-bottom-50" id="trending">
@@ -466,7 +427,7 @@
                                 </a>
                             </div>
                             <div class="details">
-                                <h6 class="title"><a href="{{ route('article.view', $art)}}">{{$art->title}}</a></h6>
+                                <h6 class="title"><a href="{{ route('article.view', $art->slug)}}">{{$art->title}}</a></h6>
                                 <div class="post-meta-single">
                                     <ul>
                                         <li><i class="fa fa-clock-o"></i>{{$art->created_at->format('d:m:y')}}</li>

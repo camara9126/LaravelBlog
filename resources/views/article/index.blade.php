@@ -56,7 +56,7 @@
                                 </td>
                                 <td>{{$a->created_at}}</td>
                                 <td>
-                                    @if ($a->status)
+                                    @if ($a->status == 1)
                                         <form action="{{ route('article.deactivate', $a) }}" method="POST">
                                             @csrf
                                             @method('PATCH')

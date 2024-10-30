@@ -19,8 +19,10 @@ class HomeController extends Controller
         $articles= article::all();
         $youtube= Pubs::all();
         $comment= commentaire::all();
+        $recentArticles = Article::orderBy('click_count', 'desc')->take(5)->get(); // Limite à 5 articles récents
+        // dd($recentArticles);
         // dd($articles);
-    return view('blog.home', compact('articles','youtube','categorie','comment'));
+    return view('blog.home', compact('articles','youtube','categorie','comment','recentArticles'));
     }
 
 
