@@ -16,8 +16,8 @@
             <div class="row">
                 <div class="col-lg-8 col-sm-12">
                     <div class="contact-form-right">
-                        <h2>GET IN TOUCH</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio justo, ultrices ac nisl sed, lobortis porta elit. Fusce in metus ac ex venenatis ultricies at cursus mauris.</p>
+                        <h2>Parlons de Vos Objectifs et Défis !</h2>
+                        <p>Que vous ayez une question, besoin de conseils personnalisés, ou que vous souhaitiez discuter de vos projets professionnels, notre équipe est à votre écoute. Remplissez le formulaire ci-dessous, et nous vous répondrons dans les plus brefs délais pour vous accompagner dans vos démarches.</p>
                         <form method="post" action="{{route('contact.store')}}" id="contactForm">
                             @csrf
                             <div class="row">
@@ -44,10 +44,13 @@
                                         <textarea class="form-control" name="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
+                                    <b>NB: </b><i class="text-info">Nous respectons votre vie privée et vos informations seront traitées de manière confidentielle.</i>
+                                    <p>Prenez contact dès aujourd’hui et avançons ensemble vers vos objectifs !</p><br>
                                     <div class="submit-button text-center">
                                         <button class="btn btn-blue" id="submit" type="submit">Send Message</button>
                                     </div>
                                 </div>
+                                
                             </div>
                         </form>
                     </div>

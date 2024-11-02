@@ -1,7 +1,7 @@
 @include('partials.entete')
 
     <!-- banner area start -->
-    <div class="banner-area banner-inner-1 bg-info" id="banner">
+    <div class="banner-area banner-inner-1 bg-black" id="banner">
         <div class="banner-inner pt-5">
             <div class="container">
                 <div class="row">
@@ -24,6 +24,38 @@
                         </div>
                     </div>
                 </div>
+                <hr class="bg-white">
+                <!-- Les plus visité Start -->
+                <div class="container">
+                    <!-- <div class="section-title"> -->
+                        <h6 class="title text-white">Les Plus Visités</h6>
+                    <!-- </div>  -->
+                    <div class="row mb-0">
+                        @if($articles->count() > 0 )
+                        @foreach($recentArticles as $recent)
+                        @if($recent->click_count >= 3)
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="single-post-wrap style-white pt-2">
+                                    <div class="thumb">
+                                        <img src="{{ $recent->image }}" alt="img">
+                                        <a class="tag-base tag-blue" href="#">Tech</a>
+                                    </div>
+                                    <div class="details">
+                                        <h6 class="title"><a href="{{ route('article.view', $recent)}}">{{ $recent->title }}</a></h6>
+                                        <div class="post-meta-single mt-3">
+                                            <ul>
+                                                <li><i class="fa fa-clock-o"></i>{{ $recent->created_at }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
+                <!-- Les plus visité End  -->
             </div>
         </div>
     </div>
@@ -50,121 +82,29 @@
     </div>
     <!-- Theme list  -->
 
-    <!-- Les plus vues Start -->
-    <div class="container bg-info">
-        <div class="section-title">
-            <h6 class="title">Les Plus Visités</h6>
-        </div>
-        <div class="row">
-            @if($articles->count() > 0 )
-            @foreach($recentArticles as $recent)
-            @if($recent->click_count >= 3)
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-post-wrap style-white pt-2">
-                        <div class="thumb">
-                            <img src="{{ $recent->image }}" alt="img">
-                            <a class="tag-base tag-blue" href="#">Tech</a>
-                        </div>
-                        <div class="details">
-                            <h6 class="title"><a href="{{ route('article.view', $recent)}}">{{ $recent->title }}</a></h6>
-                            <div class="post-meta-single mt-3">
-                                <ul>
-                                    <li><i class="fa fa-clock-o"></i>{{ $recent->created_at }}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-            @endforeach
-            @endif
-        </div>
-    </div> 
-        <!-- Les plus vues End  -->
+    
 
     <!-- Trending Start-->
     <div class="post-area pd-top-50 pd-bottom-50" id="trending">
         <div class="container">
             <div class="row bg-light">
-                <div class="col-lg-3 col-md-6">
-                    <div class="section-title">
-                        <h6 class="title">Actu Theme</h6>
-                    </div>
-                    <div class="post-slider owl-carousel">
-                        <div class="item">
-                            @foreach($categorie as $c)
-                                <div class="single-post-list-wrap">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="{{asset($c->image)}}" alt="{{$c->nom}}">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <ul>
-                                                        <li><i class="fa fa-clock-o"></i>{{$c->created_at->format('d:m:Y')}}</li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title">
-                                                    <a href="{{ route('categorie.show', ['categorie'=>$c->id]) }}">
-                                                        {{strtoupper($c->nom)}}:
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="item">
-                            @foreach($categorie as $c)
-                                <div class="single-post-list-wrap">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="{{asset($c->image)}}" alt="{{$c->nom}}">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="details">
-                                                <div class="post-meta-single">
-                                                    <ul>
-                                                        <li><i class="fa fa-clock-o"></i>{{$c->created_at->format('d:m:Y')}}</li>
-                                                    </ul>
-                                                </div>
-                                                <h5 class="title">
-                                                    <a href="{{ route('categorie.show', ['categorie'=>$c->id]) }}">
-                                                        {{strtoupper($c->nom)}}:
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
+                
+                <div class="col-lg-12 col-md-12">
                     <div class="section-title">
                         <h6 class="title">What’s new</h6>
                     </div>
                     <div class="post-slider owl-carousel">
                         <div class="item">
                             <div class="single-post-wrap">
-                                <!-- <div class="thumb"> -->
-                                    <a href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank">
-                                        <img src="assets/img/youtube.png" width="900" alt="img">
-                                    </a>
-                                <!-- </div> -->
+                                <img src="assets/img/blog-3.jpg" width="50" height="400" alt="img">
                                 <div class="details mt-3">
-                                    <!-- <div class="post-meta-single mb-4 pt-1">
-                                        <ul>
-                                            <li><a class="tag-base tag-blue" href="#">Tech</a></li>
-                                            <li><i class="fa fa-clock-o"></i>08.22.2020</li>
-                                        </ul>
-                                    </div> -->
-                                    <h5 class="title text-center">Nous Sommes Désormais Sur You-Tube</h5>
-                                    <p> Si vous aimez les articles que vous lisez ici, vous adorerez nos vidéos riches en contenu, conseils pratiques, et analyses détaillées. Abonnez-vous pour ne rien manquer et profitez d'une nouvelle manière d'explorer nos thématiques avec des vidéos captivantes et informatives.</p>
-                                    <p> Rejoignez-nous sur YouTube et enrichissez votre expérience en apprenant avec nous au quotidien !</p>
+                                    
+                                    <h5 class="title text-center">Vous Accompagner dans Vos Défis ! 🌟</h5>
+                                    <p> Vous avez un projet en tête ou des défis à relever dans votre vie professionnelle ? Notre équipe est là pour vous écouter et vous guider avec des conseils personnalisés.</p>
+                                    <p> Que ce soit pour atteindre vos objectifs ou surmonter des obstacles, nous sommes là pour vous aider.</p>
+                                    <h5>N'attendez plus !</h5>
+                                    <p>Remplissez notre formulaire de contact, et prenons ensemble les premières étapes vers votre réussite.</p>
+                                    <button class="btn btn-success text-white"><a href="{{route('contact.index')}}">Obtenez de l'Aide Maintenant</a></button>
                                 </div>
                             </div>
                         </div>
@@ -202,36 +142,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="section-title">
-                        <h6 class="title">Join With Us</h6>
-                    </div>
-                    <div class="social-area-list mb-4">
-                        <ul>
-                            <li><a class="facebook" href="#"><i class="fa fa-facebook social-icon"></i><span>12,300</span><span>Like</span> <i class="fa fa-plus"></i></a></li>
-                            <li><a class="twitter" href="#"><i class="fa fa-twitter social-icon"></i><span>12,600</span><span>Followers</span> <i class="fa fa-plus"></i></a></li>
-                            <li>
-                                <a class="youtube" href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank">
-                                    <i class="fa fa-youtube-play social-icon"></i><span>1,300</span><span>Subscribers</span> <i class="fa fa-plus"></i>
-                                </a>
-                            </li>
-                            <li><a class="instagram" href="#"><i class="fa fa-instagram social-icon"></i><span>52,400</span><span>Followers</span> <i class="fa fa-plus"></i></a></li>
-                            <li><a class="google-plus" href="#"><i class="fa fa-google social-icon"></i><span>19,101</span><span>Subscribers</span> <i class="fa fa-plus"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- <div class="add-area">
-                        <h6><i class="fa fa-youtube"></i>
-                            <a href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank">
-                                Visiter notre chaine youtube
-                            </a>
-                        </h6>
-                        <div class="add-area">
-                            <a href="https://www.youtube.com/channel/UC7BeQNpcwLNhLuBNsWsDB4A" target="_blank" class="">
-                                <img src="assets/img/youtube.png" alt="img">
-                            </a>
-                        </div>
-                    </div> -->
-                </div>
+                
             </div>
         </div>
     </div>
