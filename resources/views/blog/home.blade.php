@@ -88,8 +88,9 @@
     <div class="post-area pd-top-50 pd-bottom-50" id="trending">
         <div class="container">
             <div class="row bg-light">
+                <div class="col-lg-2 col-md-2"></div>
                 
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-8 col-md-8">
                     <div class="section-title">
                         <h6 class="title">What’s new</h6>
                     </div>
@@ -108,40 +109,23 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach($articles as $a)
-                        @if($a->category_id == 4)
                         <div class="item">
                             <div class="single-post-wrap">
-                                <div class="thumb">
-                                    <img src="{{$a->image}}" alt="img">
-                                </div>
-                                <div class="details">
-                                    <div class="post-meta-single mb-4 pt-1">
-                                        <ul>
-                                            <li>
-                                                @foreach($categorie as $cat)
-                                                @if($cat->id == $a->category_id)
-                                                    <a class="tag-base tag-blue" href="{{ route('categorie.show', ['categorie'=>$cat->id]) }}">
-                                                        {{$cat->nom}}
-                                                    </a>
-                                                @endif
-                                                @endforeach
-                                            </li>
-                                            <li><i class="fa fa-clock-o"></i>{{$a->created_at->format('d:m:y')}}</li>
-                                        </ul>
-                                    </div>
-                                    <h6 class="title"><a href="{{route('article.view',$a)}}">{{$a->title}}</a></h6>
-                                    <p>
-                                        <a href="{{route('article.view',$a)}}">{!!Str::limit($a->content, 100)!!}</a>
-                                    </p>
+                                <img src="assets/img/blog-1.jpg" width="50" height="400" alt="img">
+                                <div class="details mt-3">
+                                    
+                                    <h5 class="title text-center">Vous Accompagner dans Vos Défis ! 🌟</h5>
+                                    <p> Vous avez un projet en tête ou des défis à relever dans votre vie professionnelle ? Notre équipe est là pour vous écouter et vous guider avec des conseils personnalisés.</p>
+                                    <p> Que ce soit pour atteindre vos objectifs ou surmonter des obstacles, nous sommes là pour vous aider.</p>
+                                    <h5>N'attendez plus !</h5>
+                                    <p>Remplissez notre formulaire de contact, et prenons ensemble les premières étapes vers votre réussite.</p>
+                                    <button class="btn btn-success text-white"><a href="{{route('contact.index')}}">Obtenez de l'Aide Maintenant</a></button>
                                 </div>
                             </div>
                         </div>
-                        @endif
-                        @endforeach
-                        
                     </div>
                 </div>
+                <div class="col-lg-2 col-md-2"></div>
                 
             </div>
         </div>
