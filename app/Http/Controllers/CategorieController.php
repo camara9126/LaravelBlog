@@ -95,7 +95,7 @@ class CategorieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( $categorie)
+    public function destroy($categorie)
     {
         $categorie= Categorie::findOrFail($categorie);
 

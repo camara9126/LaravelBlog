@@ -122,19 +122,16 @@ class ArticleController extends Controller
     public function deactivate(article $article)
     {
         $article->update(['status' => false]);
-        return redirect()->back()->with('success', 'Article activé avec succès.');
+        return redirect()->back()->with('success', 'Article desactivé avec succès.');
     }
     
     // fonction view article pour l'user
     public function view(article $article)
     {
-        $article->increment('click_count');
-        $recentArticles = Article::orderBy('click_count', 'desc')->take(5)->get(); // Limite à 5 articles récents
-        // dd($recentArticles);
         $comment= commentaire::all();
         $youtube= Pubs::all();
         $categorie = Categorie::all();
-        return view('blog.view', compact('article','categorie','youtube','comment','recentArticles'));
+        return view('blog.view', compact('article','categorie','youtube','comment'));
     }
 
    
