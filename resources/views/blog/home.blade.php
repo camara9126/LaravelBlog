@@ -185,7 +185,7 @@
                                             <div class="post-meta-single">
                                                 <p><i class="fa fa-clock-o"></i>{{$art->created_at->format('d/m/y')}}</p>
                                             </div>
-                                            <h6 class="title mb-0"><a href="{{ route('article.view', $art)}}">{{$art->title}} </a></h6>
+                                            <h6 class="title mb-0"><a href="{{ route('article.view', $art->slug)}}">{{$art->title}} </a></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +228,7 @@
                                         <div class="post-meta-single">
                                             <p><i class="fa fa-clock-o"></i>{{$art->created_at->format('d/m/y')}}</p>
                                         </div>
-                                        <h6 class="title mb-0"><a href="{{ route('article.view', $art)}}">{{$art->title}} </a></h6>
+                                        <h6 class="title mb-0"><a href="{{ route('article.view', $art->slug)}}">{{$art->title}} </a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
                                             <div class="post-meta-single">
                                                 <p><i class="fa fa-clock-o"></i>{{$art->created_at->format('d/m/y')}}</p>
                                             </div>
-                                            <h6 class="title mb-0"><a href="{{ route('article.view', $art)}}">{{$art->title}} </a></h6>
+                                            <h6 class="title mb-0"><a href="{{ route('article.view', $art->slug)}}">{{$art->title}} </a></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -285,7 +285,7 @@
                             <div class="post-meta-single">
                                 <p><i class="fa fa-clock-o"></i>{{$art->created_at->format('d:m:y')}}</p>
                             </div>
-                            <h6 class="title"><a href="{{ route('article.view', $art)}}">{{$art->title}} </a></h6>
+                            <h6 class="title"><a href="{{ route('article.view', $art->slug)}}">{{$art->title}} </a></h6>
                         </div>
                     </div>
                 </div>

@@ -1,20 +1,20 @@
 <?php
 
+use App\Models\Pubs;
+use App\Models\article;
+use App\Models\contact;
+use App\Models\Categorie;
+use App\Models\commentaire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PubsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\CategorieController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PubsController;
-use App\Models\article;
-use App\Models\Categorie;
-use App\Models\contact;
-use App\Models\commentaire;
-use GuzzleHttp\Middleware;
+use App\Http\Controllers\CommentaireController;
 
 // page d'accueil blog
 Route::resource('/', HomeController::class);
@@ -67,7 +67,19 @@ Route::middleware('auth')->group(function () {
 
 //page article de admin
 Route::resource('/article', ArticleController::class)->middleware(['auth', 'verified']);
-Route::get('/article/{article}', [ArticleController::class, 'view'])->name('article.view');
+
+// page view article selectionne par l'user
+Route::get('/article/{article}', function($slug) {
+    
+    $article = Article::where('slug', $slug)->firstOrFail();
+    
+    $article->increment('click_count');
+    $comments = commentaire::all();
+    $youtube = Pubs::all();
+    $categorie = Categorie::all();
+    
+    return view('blog.view', compact('article', 'categorie', 'youtube', 'comments'));
+})->name('article.view');
 
 // route pour les pubs
 Route::group(['middleware'=>'auth','verified'],

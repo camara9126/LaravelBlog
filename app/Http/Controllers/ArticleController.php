@@ -124,15 +124,7 @@ class ArticleController extends Controller
         $article->update(['status' => false]);
         return redirect()->back()->with('success', 'Article desactivé avec succès.');
     }
-    
-    // fonction view article pour l'user
-    public function view(article $article)
-    {
-        $comment= commentaire::all();
-        $youtube= Pubs::all();
-        $categorie = Categorie::all();
-        return view('blog.view', compact('article','categorie','youtube','comment'));
-    }
+       
 
    
 }

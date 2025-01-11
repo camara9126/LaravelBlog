@@ -47,10 +47,10 @@
                                                 </div>
                                                 <div class="service-about">
                                                     <h5>
-                                                        <a href="{{route('article.view', $res)}}">{{$res->title}}</a>
+                                                        <a href="{{route('article.view', $res->slug)}}">{{$res->title}}</a>
                                                     </h5>
                                                     <p>
-                                                        <a href="{{route('article.view', $res)}}">{!!Str::limit($res->content, 120)!!}</a>
+                                                        <a href="{{route('article.view', $res->slug)}}">{!!Str::limit($res->content, 120)!!}</a>
                                                     </p>
                                                 </div>
                                             </div>
